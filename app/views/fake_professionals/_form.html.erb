@@ -1,0 +1,33 @@
+<%= form_with(model: fake_professional) do |form| %>
+  <% if fake_professional.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fake_professional.errors.count, "error") %> prohibited this fake_professional from being saved:</h2>
+
+      <ul>
+        <% fake_professional.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_field :comment %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary btn-lg btn-block" %>
+    <%= link_to 'Cancel', fake_professionals_path, :class => "btn btn-secondary btn-lg btn-block" %>
+  </div>
+<% end %>

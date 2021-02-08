@@ -1,0 +1,79 @@
+<%= form_with(model: item) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stock %>
+    <%= form.number_field :stock %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :category_elements %>
+    <div class="row">
+      <% @categories.each do |category| %>
+        <label class="col-auto col-sm-auto">
+          <%= form.check_box :category_elements, {multiple:true}, category.id %>
+          <%= category.title %>
+        </label> 
+      <%end%>
+    </div>
+  </div>
+  
+  <div class="field">
+    <%= form.label :animal_elements %>
+    <div class="row">
+      <% @animals.each do |animal| %>
+        <label class="col-auto col-sm-auto">
+          <%= form.check_box :animal_elements, {multiple:true}, animal.id, nil %>
+          <%= animal.title %>
+        </label> 
+      <%end%>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :size_elements %>
+    <div class="row">
+      <% @sizes.each do |size| %>
+        <label class="col-auto col-sm-auto">
+          <%= form.check_box :size_elements, {multiple:true}, size.id, nil  %>
+          <%= size.title %>
+        </label> 
+      <%end%>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary btn-lg btn-block" %>
+    <%= link_to 'Cancel', items_path, :class => "btn btn-secondary btn-lg btn-block" %>
+  </div>
+<% end %>

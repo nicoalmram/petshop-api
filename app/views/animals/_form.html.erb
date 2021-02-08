@@ -1,0 +1,34 @@
+<%= form_with(model: animal) do |form| %>
+  <% if animal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
+
+      <ul>
+        <% animal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.color_field :color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :banner %>
+  </div>
+  
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary btn-lg btn-block" %>
+    <%= link_to 'Cancel', animals_path, :class => "btn btn-secondary btn-lg btn-block" %>
+  </div>
+<% end %>

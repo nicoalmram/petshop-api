@@ -1,0 +1,24 @@
+<% if current_user && current_user.admin %>  
+  <div class="container">
+    <h1>Sizes</h1>
+    <% @sizes.each do |size| %>
+      <div class="margin-top">
+        <div class="card">
+          <div class="margin-top">  
+            <span class="badge badge-pill text-uppercase" style="background-color: <%= size.color %>">
+              <%= link_to size.title, size, class:"text-white"%>
+            </span>
+          </div>
+          <p class="text-secondary"><%= size.created_at %></p>
+          <div>
+            <%= link_to 'Show', size, :class => "btn btn-info btn-lg" %>
+            <%= link_to 'Edit', edit_size_path(size), :class => "btn btn-secondary btn-lg" %>
+            <%= link_to 'Destroy', size, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-lg" %>
+          </div>     
+        </div>  
+      </div>
+    <% end %>
+    <br>
+    <%= link_to 'New Size', new_size_path, :class => "btn btn-primary" %>
+  </div>
+<%end%>

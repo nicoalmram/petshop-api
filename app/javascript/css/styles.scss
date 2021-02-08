@@ -1,0 +1,76 @@
+@import '~bootstrap/scss/bootstrap';
+
+.margin-top{
+    margin-top:1.5em;   
+    .badge-pill{
+        padding: 10px;
+        a{
+            padding: 10px;
+        }
+    }
+}
+.text-align{ text-align:center;}
+.card{
+    @extend .text-align;
+}
+.another-pill{
+    .badge-pill{
+        padding: 10px;
+        a{
+            padding: 10px;
+        }
+    }
+}
+.field{
+    @extend .margin-top;
+    label{
+        @extend .text-uppercase;
+        @extend .text-secondary;
+    }
+    &:first-of-type{
+        margin-top:0;
+    }
+    input{
+        @extend .form-control;
+        font-size: 18px;
+    }
+    input[type='checkbox']{
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+        margin-right: 0.5em;
+    }
+}
+.nav{
+    padding: 10px;
+    
+    a{
+        color:white;
+    }
+    a:hover {
+        color:indigo;
+    }
+}
+
+footer{
+    .w3-third{
+        font-size: 20px;
+    }
+    position: relative;
+    bottom: 0;
+
+    .w3-left{
+        width: 75px;
+    }
+}
+
+.container{
+    margin-top: 3em;
+    .btn {
+        margin-top: 1em;
+    }
+}
+
+.notice{
+    padding:10px;
+}

@@ -1,0 +1,24 @@
+<% if current_user && current_user.admin %>
+  <div class="container">
+    <div class="margin-top">
+      <h1 style="color:<%= @animal.color %>">Items from <%= @animal.title %></h1>
+    </div>
+    <% @AnimalItem.each do |animalItem| %>
+      <div class="margin-top">
+        <div class="card"> 
+            <h1 class="text-uppercase"><%= Item.find(animalItem.item_id).name %></h1>
+            <p><strong>Description:</strong> <%= Item.find(animalItem.item_id).description %></p>
+            <p><strong>Price:</strong> <%= Item.find(animalItem.item_id).price %>$</p>
+            <p><strong>Stock:</strong> <%= Item.find(animalItem.item_id).stock %></p>
+          <div>
+            <% if current_user && current_user.admin%>
+              <%= link_to 'Edit', edit_item_path(animalItem.item_id), :class=> "btn btn-success btn-lg" %> 
+            <% end %>
+            <%= link_to 'Show', item_path(animalItem.item_id), :class=> "btn btn-primary btn-lg" %>
+            <%= link_to 'Back', animals_path, :class=> "btn btn-secondary btn-lg" %>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+<%end%>

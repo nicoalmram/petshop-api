@@ -1,0 +1,28 @@
+<%= form_with(model: size) do |form| %>
+  <% if size.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(size.errors.count, "error") %> prohibited this size from being saved:</h2>
+
+      <ul>
+        <% size.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.color_field :color %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary btn-lg btn-block" %>
+    <%= link_to 'Cancel', sizes_path, :class => "btn btn-secondary btn-lg btn-block" %>
+  </div>
+<% end %>

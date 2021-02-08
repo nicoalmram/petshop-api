@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fake_professional.name %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @fake_professional.comment %>
+</p>
+
+<%= link_to 'Edit', edit_fake_professional_path(@fake_professional) %> |
+<%= link_to 'Back', fake_professionals_path %>

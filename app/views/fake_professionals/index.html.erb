@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <h1>Professionals</h1>
+  <% @fake_professionals.each do |fake_professional| %>
+    <div class="margin-top">
+      <div class="card">
+        <div class="margin-top"> 
+          <%= image_tag url_for(fake_professional.image), :style => "width:20%; height:auto; min-width:250px;" %>
+          <h1 class="text-uppercase"><%= fake_professional.name %></h1>
+          <p><%= fake_professional.comment %></p>
+        <div>
+
+          <%= link_to 'Show', fake_professional, :class => "btn btn-info btn-lg" %>
+          <%= link_to 'Edit', edit_fake_professional_path(fake_professional), :class => "btn btn-secondary btn-lg" %>
+          <%= link_to 'Destroy', fake_professional, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-lg" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <br>
+  <%= link_to 'New Professional', new_fake_professional_path, :class => "btn btn-primary" %>
+</div>

@@ -1,0 +1,7 @@
+<% if current_user && current_user.admin %>
+    <div class="container">
+        <h1>Editing Category</h1>
+
+        <%= render 'form', category: @category %>
+    </div>
+<%end%>

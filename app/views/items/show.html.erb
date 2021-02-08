@@ -1,0 +1,50 @@
+<% if current_user && current_user.admin %>
+  <div class="container">
+    <div class="card">
+      <div class="margin-top">
+        <h3 class="text-uppercase"><%= @item.name %></h3>
+        <hr/>
+        <div>
+          <%= image_tag url_for(@item.image), :style => "height:auto; width:300px;" %>
+        </div>
+        <p>
+          <label><strong>Description:</strong></label><br>
+          <%= @item.description %>
+        </p>
+        
+        <p>
+          <strong>Price:</strong>
+          <%= @item.price %>$
+        </p>
+    
+        <p>
+          <strong>Stock:</strong>
+          <%= @item.stock %>
+        </p>  
+
+        <label><strong>Tags: </strong></label>
+        <div class="margin-top">
+          <% @item.categories.each do |category| %>
+            <span class="badge badge-pill" style="background-color: <%= category.color %>"> 
+              <%= link_to category.title, category, class:"text-white"%>
+            </span>
+          <% end %>
+          <% @item.animals.each do |animal| %>
+            <span class="badge badge-pill" style="background-color: <%= animal.color %>"> 
+              <%= link_to animal.title, animal, class:"text-white"%>
+            </span>
+          <% end %> 
+          <% @item.sizes.each do |size| %>
+            <span class="badge badge-pill" style="background-color: <%= size.color %>"> 
+              <%= link_to size.title, size, class:"text-white"%>
+            </span>
+          <% end %>
+          <div class="d-grid gap-2 d-md-block">
+            <%= link_to 'Edit', edit_item_path(@item), :class => "btn btn-primary btn-lg" %>
+            <%= link_to 'Back', items_path, :class => "btn btn-secondary btn-lg" %>
+          </div>
+        </div>
+      </div>  
+    </div>  
+  </div>
+<%end%>
